@@ -16,7 +16,7 @@ const vote = (option, voterId) => {
 }
 
 const displayResults = () => {
-  const result = [...poll].map(([option, votes]) => `${option}: ${votes.size} votes`).join('\n');
+  const result = [...poll].map(([option, voters]) => `${option}: ${voters.size} votes`).join('\n');
   return `Poll Results:\n${result}`;
 }
 
