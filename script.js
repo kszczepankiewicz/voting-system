@@ -11,13 +11,9 @@ const addOption = option => {
 
 const vote = (option, voterId) => {
   if (!poll.has(option)) return `Option "${option}" does not exist.`;
-  else {
-    if (poll.get(option).has(voterId)) return `Voter ${voterId} has already voted for "${option}".`;
-    else {
-      poll.get(option).add(voterId);
-      return `Voter ${voterId} voted for "${option}".`
-    }
-  }
+  if (poll.get(option).has(voterId)) return `Voter ${voterId} has already voted for "${option}".`;
+  poll.get(option).add(voterId);
+  return `Voter ${voterId} voted for "${option}".`
 }
 
 const displayResults = () => `Poll Results:\n${Array.from(poll).map(arr => `${arr[0]}: ${arr[1].size} votes`).join('\n')}`;
