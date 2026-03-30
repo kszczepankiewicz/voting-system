@@ -8,8 +8,8 @@ const addOption = option => {
 }
 
 const vote = (option, voterId) => {
-  if (!poll.has(option)) return `Option "${option}" does not exist.`;
   const voters = poll.get(option);
+  if (!voters) return `Option "${option}" does not exist.`;
   if (voters.has(voterId)) return `Voter ${voterId} has already voted for "${option}".`;
   voters.add(voterId);
   return `Voter ${voterId} voted for "${option}".`
