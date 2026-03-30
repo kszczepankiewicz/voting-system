@@ -14,7 +14,7 @@ const vote = (option, voterId) => {
   return `Voter ${voterId} voted for "${option}".`
 }
 
-const displayResults = () => `Poll Results:\n${Array.from(poll).map(arr => `${arr[0]}: ${arr[1].size} votes`).join('\n')}`;
+const displayResults = () => `Poll Results:\n${Array.from(poll).map(([option, votes]) => `${option}: ${votes.size} votes`).join('\n')}`;
 
 addOption('Turkey');
 addOption('Morocco');
